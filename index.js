@@ -1,16 +1,27 @@
-const Discord = require('discord.js')
-const client = new Discord.Client()
+const Discord = require('discord.js');
+const client = new Discord.Client();
 
-const { MessageEmbed } = require('discord.js')
-const { version } = require('./package.json')
-const { prefix } = require('./package.json')
-const { author } = require('./package.json')
+const { MessageEmbed } = require('discord.js');
+const { version } = require('./package.json');
+const { prefix } = require('./package.json');
+const { author } = require('./package.json');
 
-const config = require('./config.json')
-const command = require('./command')
+const config = require('./config.json');
+const command = require('./command');
 
 client.on('ready', () => {
   console.log('The client is online!')
+
+client.on('guildMemberAdd', member => {
+  member.send("Welcome to 🌟DRØNÀ多Gᴀᴍɪɴɢ🌟!! Please read the <#700644963427549184> for dedicated role and full access to the server.")
+});
+
+client.user.setActivity("DRØNÀ Gᴀᴍɪɴɢ", {
+  type: "LISTENING",
+});
+});
+
+
 
   command(client, ['ping', 'test'], (message) => {
     message.reply('Calculating ping...').then((resultMessage) => {
@@ -18,7 +29,7 @@ client.on('ready', () => {
 
       resultMessage.edit(`Bot latency: ${ping}, API Latency: ${client.ws.ping}`)
     })
-  })
+  });
 
   command(client, ['cc', 'clearchannel'], (message) => {
     if (message.member.hasPermission('ADMINISTRATOR')) {
@@ -26,20 +37,7 @@ client.on('ready', () => {
         message.channel.bulkDelete(results)
       })
     }
-  })
-
-  command(client, 'status', (message) => {
-    const content = message.content.replace('+status ', '')
-    // "+status hello world" -> "hello world"
-
-    client.user.setPresence({
-      activity: {
-        name: content,
-        type: 0,
-      },
-    })
-  })
-})
+  });
 
   command(client, 'info', (message) => {
     message.reply
@@ -72,7 +70,6 @@ client.on('ready', () => {
         )
 
       message.channel.send(embed)
-    }
-  )
+  });
 
 client.login(config.token)
