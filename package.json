@@ -1,13 +1,15 @@
 {
   "name": "drona-origin",
   "version": "1.0.0",
-  "prefix": "+",
-  "description": "",
+  "description": "Developed by DRONA Gaming",
   "main": "index.js",
+  "author": "DRONA Gaming",
+  "homepage": "https://github.com/drona-gaming",
+  "repository": "https://github.com/drona-gaming/drona-origin.git",
+  "bugs": "https://github.com/drona-gaming/drona-origin/issues",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "DRONA Gaming",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.5.3"
