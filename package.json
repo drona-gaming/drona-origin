@@ -1,6 +1,7 @@
 {
   "name": "drona-origin",
   "version": "1.0.0",
+  "prefix": "+",
   "description": "Developed by DRONA Gaming",
   "main": "index.js",
   "author": "DRONA Gaming",
