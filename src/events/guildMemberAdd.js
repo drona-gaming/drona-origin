@@ -1,4 +1,5 @@
 const { EmbedBuilder } = require("discord.js");
+const logger = require("../utils/logger");
 
 module.exports = {
   name: "guildMemberAdd",

@@ -21,17 +21,13 @@ async function deployCommands() {
       process.env.DISCORD_TOKEN
     );
 
-    logger.info("Started refreshing application (/) commands.");
+    logger.info("Started refreshing application (/) commands globally.");
 
-    await rest.put(
-      Routes.applicationGuildCommands(
-        process.env.CLIENT_ID,
-        process.env.GUILD_ID
-      ),
-      { body: commands }
-    );
+    await rest.put(Routes.applicationCommands(process.env.CLIENT_ID), {
+      body: commands,
+    });
 
-    logger.info("Successfully reloaded application (/) commands.");
+    logger.info("Successfully registered global application (/) commands.");
   } catch (error) {
     logger.error("Failed to deploy commands:");
     logger.error(error);
